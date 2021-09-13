@@ -14,6 +14,15 @@ class Api::UsersController < ApplicationController
          render json: {erro: 'Ooops something went wrong'}
         end
       end
+
+      def show 
+        @user = User.find_by(id: params[:id])
+        if @user
+          render json: UserSerializer.new(@user).serialized_json
+        else
+          render json: {message: "User was not found"}
+      end
+    end
     
       private
     
