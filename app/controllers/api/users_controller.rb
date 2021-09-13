@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  
+
     def index
         @users = User.all
         render json: @users
@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
-          render json: @user
+          render json: {user: @user, statued: 'created', message: 'You have successfuly created your account'}
         else
          render json: {erro: 'Ooops something went wrong'}
         end
