@@ -5,12 +5,16 @@ class Api::CategoriesController < ApplicationController
     end
 
     def create
-        category = Category.new(category_params)
+        category = User.categories.new(category_params)
         if category.save
             render json: {statues: 'created', category: :category, message: 'Category successfully created'}
         else
             render json: {message: 'Ooops category was not able to create'}
         end
+    end
+
+    def update
+        category = User.cateories.update()
     end
 
     private
