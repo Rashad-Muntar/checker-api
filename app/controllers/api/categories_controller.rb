@@ -5,8 +5,8 @@ class Api::CategoriesController < ApplicationController
     end
 
     def create
-        category = User.categories.new(category_params)
-        if category.save
+        category = Category.create(category_params)
+        if category
             render json: {statues: 'created', category: :category, message: 'Category successfully created'}
         else
             render json: {message: 'Ooops category was not able to create'}
@@ -19,6 +19,7 @@ class Api::CategoriesController < ApplicationController
 
     private
     def category_params
-        params.require(:category).permit(:title, :progress)
+        params.permit(categories: [:title, :progress, :user_id]).require(:categories)
     end
+
 end

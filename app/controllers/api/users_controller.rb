@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
-          render json: {user: @user, statued: 'created', message: 'You have successfuly created your account'}
+          render json: {user: @user, status: 'created', message: 'You have successfuly created your account'}
         else
          render json: {erro: 'Ooops something went wrong'}
         end
@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
       def show 
         @user = User.find_by(id: params[:id])
         if @user
-          render json: UserSerializer.new(@user).serialized_json
+          render json: UserSerializer.new(@user, options).serialized_json
         else
           render json: {message: "User was not found"}
       end
@@ -28,5 +28,9 @@ class Api::UsersController < ApplicationController
     
       def user_params
         params.require(:user).permit(:username, :email)
+      end
+
+      def options
+        @options ||= {include: %i[categories] }
       end
 end

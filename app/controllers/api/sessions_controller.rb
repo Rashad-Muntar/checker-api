@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user.present?
           session[:user_id] = @user.id
-          render json: {user: @user, statues: 'signed_in', message: 'You have successfuly login'}
+          render json: {user: @user, status: 'signed_in', message: 'You have successfuly login'}
         else
           render json: {error: "Ooops you couldn't sign in"}
         end
