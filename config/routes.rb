@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       # get "show", to: 'catgories#show'
       resources :categories do
         resources :activities, only: [:index, :create, :update, :destroy] 
+        resources :periods, only: [:create]
       end
     end
   end

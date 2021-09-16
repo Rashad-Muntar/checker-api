@@ -22,17 +22,32 @@ class Api::CategoriesController < ApplicationController
         end
     end
 
-    def update
-        category = User.cateories.update()
-    end
+    # def update
+    #     @category = Category.update(category_update_params)
+    #     head :no_content
+    # end
+
+    # def update
+    #     @category = Category.find_by(params:[:id])
+    #     @category.update(category_update_params)
+    #     if @category
+    #       render json: {category: @category, statues: 'category updated'}
+    #     else
+    #       render json: @category.errors, status: :unprocessable_entity
+    #     end
+    #   end
 
     private
     def category_params
-        params.permit(categories: [:title, :hour, :minute, :user_id]).require(:categories)
+        params.permit(categories: [:title, :user_id]).require(:categories)
     end
 
+    # def category_update_params
+    #     params.require(:category).permit(:hour, :minute)
+    # end
+
     def options
-        @options ||= {include: %i[activities] }
+        @options ||= {include: [:activities, :periods] }
       end
 
 end
