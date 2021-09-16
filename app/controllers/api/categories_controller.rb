@@ -13,13 +13,26 @@ class Api::CategoriesController < ApplicationController
         end
     end
 
+    def show
+        @category = Category.find_by(id: params[:id])
+        if @category
+        render json: CategorySerializer.new(@category, options).serialized_json
+        else
+            render json: {message: 'Ooops category was not found'}
+        end
+    end
+
     def update
         category = User.cateories.update()
     end
 
     private
     def category_params
-        params.permit(categories: [:title, :progress, :user_id]).require(:categories)
+        params.permit(categories: [:title, :hour, :minute, :user_id]).require(:categories)
     end
+
+    def options
+        @options ||= {include: %i[activities] }
+      end
 
 end

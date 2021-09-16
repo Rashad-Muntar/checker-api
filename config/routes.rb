@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       # post "new_categories", to: 'categories#create'
       # get "show", to: 'catgories#show'
       resources :categories do
-        resources :activties, only: [:create, :update, :destroy] 
+        resources :activities, only: [:index, :create, :update, :destroy] 
       end
     end
   end

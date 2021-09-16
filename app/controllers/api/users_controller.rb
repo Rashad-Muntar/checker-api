@@ -31,6 +31,6 @@ class Api::UsersController < ApplicationController
       end
 
       def options
-        @options ||= {include: %i[categories] }
+        @options ||= {include: [:categories] }
       end
 end
