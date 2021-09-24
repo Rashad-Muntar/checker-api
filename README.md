@@ -1,6 +1,6 @@
 # Day activity tracker
 
-> This a rails api for a tracker which feeds the front of the tracker application build with react and redux. The api allows users to signup and login. The signed up user automatacally generate categories which is associated to the user's account and it is associated to a activities created by the use.  Built with Ruby on Rails 6.
+> This a rails api for a tracker which feeds the frontend of a tracker application built with react and redux. The api allows users to signup and login. The signed up user gets an automatacally generated categories which is associated to the user's account and it is associated to activities created by the use. Built with Ruby on Rails 6.
 
 ## Built With
 - Ruby on Rails MVC Framework.
