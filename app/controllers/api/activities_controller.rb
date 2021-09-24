@@ -8,9 +8,9 @@ class Api::ActivitiesController < ApplicationController
     def create
         @activity = Activity.create(activity_params)
         if @activity
-            render json: {statues: 'created', activity: @activity, message: 'Category successfully created'}
+            render json: {statues: 'created', activity: @activity, message: 'Activity was successfully created'}
         else
-            render json: {message: 'Ooops category was not able to create'}
+            render json: {message: 'Ooops activity was not able to create'}
         end
     end
 
