@@ -35,11 +35,11 @@ _Base URL_: `https://square-api-rr.herokuapp.com`
 |Log in to created account|POST|`/login`|
 |Log out if logged in|DELETE|`/logout`|
 |Create a category|POST|`api/user/:user_id/categories`|
-|Fetch hotels list |GET|`api/user/:user_id/categories`|
-|Fetch category details |GET|`api/user/:user_id/categories/:id`|
+|Fetch Categories list |GET|`api/user/:user_id/categories`|
+|Fetch Category details |GET|`api/user/:user_id/categories/:id`|
 |Update Category to |PUT|`/api/users/:user_id/categories/:id`|
-|Create activity |POST|`/api/users/:user_id/categories/:category_id/activities`|
-|Update activity to |PUT|`/api/users/:user_id/categories/:category_id/activities/:id`|
+|Create Activity |POST|`/api/users/:user_id/categories/:category_id/activities`|
+|Update Activity to |PUT|`/api/users/:user_id/categories/:category_id/activities/:id`|
 
 
 ## Expected Response Status Codes
