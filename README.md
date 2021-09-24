@@ -27,7 +27,7 @@ To set up a local version of this project, a collection of steps have been put t
 - Run `rails server` to get a server running on your local machine.
 
 ## Endpoints
-_Base URL_: `https://square-api-rr.herokuapp.com`
+_Base URL_: `https://gentle-taiga-27732.herokuapp.com/`
 
 |Description|Method|Endpoint|
 |:---|:---|:---|
@@ -60,7 +60,8 @@ _Base URL_: `https://square-api-rr.herokuapp.com`
 ### Gems Used
 - Cors
 - PSG
-- fast_jsonapi
+- fast_jsonapi for standdard json serialization
+- 
 
 
 ### Usage
