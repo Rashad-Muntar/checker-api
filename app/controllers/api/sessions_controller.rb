@@ -11,19 +11,6 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  def logged_in
-    if @current_user
-      render json: {
-        logged_in: true,
-        user: @current_user
-      }
-    else
-      render json: {
-        logged_in: false
-      }
-    end
-  end
-
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

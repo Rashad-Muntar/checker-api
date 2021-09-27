@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     get "users", to: 'users#index'
     post 'signup', to: 'users#create'
     post 'login', to: 'sessions#create'
-    get 'current_user', to: 'sessions#logged_in'
     delete 'logout', to: 'sessions#destroy'
     resources :users do
       # get "cateories", to: "categories#index"
