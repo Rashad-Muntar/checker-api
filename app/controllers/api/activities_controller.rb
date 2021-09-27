@@ -9,7 +9,7 @@ class Api::ActivitiesController < ApplicationController
     if @activity
       render json: { statues: 'created', activity: @activity, message: 'Activity was successfully created' }
     else
-      render json: { message: 'Ooops activity was not able to create' }
+      render json: { message: 'Ooops activity was not able to create'  statues: internal_server_error}
     end
   end
 

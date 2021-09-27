@@ -28,7 +28,7 @@ class Api::CategoriesController < ApplicationController
     if @category
       render json: { category: @category, statues: 'category updated' }
     else
-      render json: @category.errors, status: :unprocessable_entity
+      render json: @category.errors, statues: internal_server_error
     end
   end
 
