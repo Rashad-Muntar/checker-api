@@ -22,11 +22,6 @@ class Api::CategoriesController < ApplicationController
     end
   end
 
-  # def update
-  #     @category = Category.update(category_update_params)
-  #     head :no_content
-  # end
-
   def update
     @category = Category.find(params[:id])
     @category.update(category_update_params)
