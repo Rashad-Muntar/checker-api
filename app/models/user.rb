@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_many :activities, dependent: :destroy
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true
+  has_secure_password
 end

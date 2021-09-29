@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:username])
-    if @user.present?
+    if @user && @user.authenticate(params[:username][password])
       render json: { user: @user, status: 'signed_in', message: 'You have successfuly login' }
     else
       render json: {error: 'invalid_credentials'}, status: 500
