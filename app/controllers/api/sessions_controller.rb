@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
     if @user.present?
       render json: { user: @user, status: 'signed_in', message: 'You have successfuly login' }
     else
-      render json: { error: "Ooops you couldn't sign in" statues: internal_server_error}
+      render json: {error: 'invalid_credentials'}, status: 500
     end
   end
 
