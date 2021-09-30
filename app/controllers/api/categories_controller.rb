@@ -7,9 +7,9 @@ class Api::CategoriesController < ApplicationController
   def create
     category = Category.create(category_params)
     if category
-      render json: { statues: 'created', category: :category, message: 'Category was successfully created' }
+      render json: { status: 'created', category: :category, message: 'Category was successfully created' }
     else
-      render json: { error: 'Ooops category was not able to create' }, statues: :internal_server_error
+      render json: { error: 'Ooops category was not able to create' }, status: :internal_server_error
     end
   end
 
