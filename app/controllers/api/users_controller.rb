@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
       session[:user_id] = @user.id
       render json: { user: @user, status: 'created', message: 'You have successfuly created your account' }
     else
-      render json: { erro: 'Ooops something went wrong' }
+      render json: { errors: 'Ooops something went wrong'}, statues: :internal_server_error
     end
   end
 
@@ -19,14 +19,14 @@ class Api::UsersController < ApplicationController
     if @user
       render json: UserSerializer.new(@user, options).serialized_json
     else
-      render json: { message: 'User was not found' }
+      render json: { message: 'User was not found' }, statues: :internal_server_error
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :email)
+    params.require(:user).permit(:username, :email, :password)
   end
 
   def options

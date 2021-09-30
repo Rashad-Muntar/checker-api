@@ -9,7 +9,7 @@ class Api::CategoriesController < ApplicationController
     if category
       render json: { statues: 'created', category: :category, message: 'Category was successfully created' }
     else
-      render json: { message: 'Ooops category was not able to create' }
+      render json: { error: 'Ooops category was not able to create' }, statues: :internal_server_error
     end
   end
 
@@ -18,7 +18,7 @@ class Api::CategoriesController < ApplicationController
     if @category
       render json: CategorySerializer.new(@category, options).serialized_json
     else
-      render json: { message: 'Ooops category was not found' }
+      render json: { error: 'Ooops category was not found' }, statues: :internal_server_error
     end
   end
 
@@ -28,7 +28,7 @@ class Api::CategoriesController < ApplicationController
     if @category
       render json: { category: @category, statues: 'category updated' }
     else
-      render json: @category.errors, status: :unprocessable_entity
+      render json: @category.errors, statues: :internal_server_error
     end
   end
 

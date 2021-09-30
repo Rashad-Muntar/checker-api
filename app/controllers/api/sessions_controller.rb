@@ -2,25 +2,11 @@ class Api::SessionsController < ApplicationController
   before_action :current_user
 
   def create
-    @user = User.find_by(username: params[:username])
-    if @user.present?
-      session[:user_id] = @user.id
-      render json: { user: @user, status: 'signed_in', message: 'You have successfuly login' }
+    user = User.find_by(username: params[:username])
+    if user.authenticate(params[:password])
+      render json: { user: user, status: 'signed_in', message: 'You have successfuly login' }
     else
-      render json: { error: "Ooops you couldn't sign in" }
-    end
-  end
-
-  def logged_in
-    if @current_user
-      render json: {
-        logged_in: true,
-        user: @current_user
-      }
-    else
-      render json: {
-        logged_in: false
-      }
+      render json: {error: 'invalid_credentials'}, status: 500
     end
   end
 
