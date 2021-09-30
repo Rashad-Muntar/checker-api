@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
       session[:user_id] = @user.id
       render json: { user: @user, status: 'created', message: 'You have successfuly created your account' }
     else
-      render json: { errors: 'Ooops something went wrong'}, statues: :internal_server_error
+      render json: { errors: 'Ooops something went wrong' }, statues: :internal_server_error
     end
   end
 
