@@ -7,11 +7,7 @@ class Api::CategoriesController < ApplicationController
   def create
     category = Category.create(category_params)
     if category
-<<<<<<< HEAD
-      render json: { statues: 'created', category: :category, message: 'Category successfully created' }
-=======
       render json: { statues: 'created', category: :category, message: 'Category was successfully created' }
->>>>>>> fe59564d29148c48e8fdf0073bc991eba275153e
     else
       render json: { message: 'Ooops category was not able to create' }
     end
@@ -25,11 +21,6 @@ class Api::CategoriesController < ApplicationController
       render json: { message: 'Ooops category was not found' }
     end
   end
-
-  # def update
-  #     @category = Category.update(category_update_params)
-  #     head :no_content
-  # end
 
   def update
     @category = Category.find(params[:id])
