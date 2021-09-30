@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
     if user.authenticate(params[:password])
       render json: { user: user, status: 'signed_in', message: 'You have successfuly login' }
     else
-      render json: {error: 'invalid_credentials'}, status: 500
+      render json: { error: 'invalid_credentials' }, status: 500
     end
   end
 
